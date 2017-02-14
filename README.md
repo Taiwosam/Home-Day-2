@@ -22,4 +22,4 @@ EVERYTHING BELOW IS TO BE DONE IN THE COMMAND LINE
   TO RUN THE FILES IN HTTP-and-WEB:
 
   1. Navigate to the HTTP-and-WEB folder.
-  2. Run node <file name> e.g. for EPLTable.js: Run node EPLTable.js
+  2. Run node [file name] e.g. for EPLTable.js: Run node EPLTable.js
