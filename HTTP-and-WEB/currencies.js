@@ -6,10 +6,16 @@ var url = "http://api.fixer.io/latest?base=USD";
 
 function sendRequest(request) {
   request.onreadystatechange = function () {
-    if (request.readyState === 4 && request.status === 200) {
-      console.log("\n \n \n These are the exchange rates as of today: \n \n \n");
-      console.log(JSON.parse(request.responseText));
-      console.log("\n \n")
+    if (request.readyState === 4) {
+      if (request.status === 200) {
+        console.log("\n \n \n These are the exchange rates as of today: \n \n \n");
+        console.log(JSON.parse(request.responseText));
+        console.log("\n \n")
+      }
+
+      else {
+        console.log ("Error: " + request.responseText);
+      }
     }
   };
 

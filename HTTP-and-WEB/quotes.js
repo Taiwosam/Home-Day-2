@@ -7,8 +7,17 @@ var unirest = require('unirest');
     .header("X-Mashape-Key", "vgQrLAF3ROmsh2K5YAAaaN0tq68Mp15b53WjsnJUQIhTFT5X03")
     .header("Content-Type", "application/x-www-form-urlencoded")
     .header("Accept", "application/json")
-    .end(function (result) {
-      resultBody = JSON.parse(result.body);
-      console.log('\n\n\n' + `  ${resultBody.quote} - ${resultBody.author}` + '\n\n\n');
-    });
+    .end(
+      function (result) {
+        if (result.ok) {
+          resultBody = JSON.parse(result.body);
+          console.log('\n\n\n' + `  ${resultBody.quote} - ${resultBody.author}` + '\n\n\n');
+        }
+
+        else {
+          console.log ("\n\n");
+          console.log("Error: " + result.body);
+        }
+    }
+  );
 }());
