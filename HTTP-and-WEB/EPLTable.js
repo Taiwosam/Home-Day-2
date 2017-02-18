@@ -45,7 +45,9 @@ function requestHandler(request) {
 
     else {
       console.log("\n\n");
-      console.log("Error: " + request.responseText);
+      console.log(`${request.statusText} \n`);
+      console.log("Try check your internet connectivity and/or the url.");
+      console.log("\n\n");
     }
 
   }

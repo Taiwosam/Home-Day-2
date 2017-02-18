@@ -9,14 +9,22 @@ var unirest = require('unirest');
     .header("Accept", "application/json")
     .end(
       function (result) {
-        if (result.ok) {
-          resultBody = JSON.parse(result.body);
-          console.log('\n\n\n' + `  ${resultBody.quote} - ${resultBody.author}` + '\n\n\n');
+        try {
+          if (result.ok) {
+            resultBody = JSON.parse(result.body);
+            console.log('\n\n\n' + `  ${resultBody.quote} - ${resultBody.author}` + '\n\n\n');
+          }
+
+          else {
+            console.log ("\n\n");
+            console.log(`${result.error}\n`);
+          }
         }
 
-        else {
-          console.log ("\n\n");
-          console.log("Error: " + result.body);
+        catch (err) {
+          console.log("\n\n");
+          console.log("An error occurred. Please check your internet connectivity and/or the url.")
+          console.log("\n\n");
         }
     }
   );
